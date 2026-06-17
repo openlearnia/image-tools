@@ -4,10 +4,6 @@ on:
   push:
     branches: [main]
 
-defaults:
-  run:
-    working-directory: projects/tools/image-tools
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,4 +16,4 @@ jobs:
       - run: bun run build
 
   # Cloudflare Pages: create project "openlearnia-image-tools", connect this repo,
-  # root directory = projects/tools/image-tools, custom domain = image.openlearnia.com
+  # root directory = . (repo root), custom domain = image.openlearnia.com

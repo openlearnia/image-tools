@@ -1,16 +1,8 @@
 # Contributing to Image Tools
 
-## Repository layout
-
-```
-image-tools/
-└── projects/tools/image-tools/   ← Astro app (all development here)
-```
-
 ## Setup
 
 ```powershell
-cd projects/tools/image-tools
 bun install
 bun run dev
 ```

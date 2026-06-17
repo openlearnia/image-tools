@@ -14,7 +14,6 @@ Privacy-first image utilities that run entirely in your browser — nothing is u
 ## Develop
 
 ```powershell
-cd projects/tools/image-tools
 bun install
 bun run dev
 ```
@@ -24,15 +23,14 @@ Open [http://localhost:4321](http://localhost:4321).
 ## Build
 
 ```powershell
-cd projects/tools/image-tools
 bun run build
 ```
 
-Output is in `projects/tools/image-tools/dist/`.
+Output is in `dist/`.
 
 ## Deploy
 
-Cloudflare Pages: connect `openlearnia/image-tools`, set root directory to `projects/tools/image-tools`, build command `bun run build`, output `dist`. Custom domain: `image.openlearnia.com`.
+Cloudflare Pages: connect `openlearnia/image-tools`, build command `bun run build`, output `dist`, root directory `.` (repo root). Custom domain: `image.openlearnia.com`.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and `.github/workflows/deploy.yml`.
 
