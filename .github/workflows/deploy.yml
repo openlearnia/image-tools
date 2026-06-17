@@ -18,7 +18,16 @@ jobs:
           bun-version: latest
       - run: bun install --frozen-lockfile
       - run: bun run build
-      - uses: cloudflare/wrangler-action@v3
+      - name: Ensure Cloudflare Pages project exists
+        uses: cloudflare/wrangler-action@v3
+        continue-on-error: true
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          command: pages project create image-tools --production-branch=main
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
