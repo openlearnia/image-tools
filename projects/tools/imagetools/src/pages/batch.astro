@@ -1,0 +1,46 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+---
+<AppLayout title="Batch Process — Openlearnia Image Tools" activeSlug="batch">
+  <ToolShell title="Batch Process" description="Compress or resize many images at once and download a ZIP." slug="batch">
+    <DropZone multiple label="Drop multiple images here or click to browse" />
+    <p class="stats" id="file-list">No files selected</p>
+    <div class="controls">
+      <label>
+        Operation
+        <select id="batch-mode">
+          <option value="compress">Compress</option>
+          <option value="resize">Resize (max dimensions)</option>
+        </select>
+      </label>
+      <label>
+        Max width (px)
+        <input type="number" id="max-width" placeholder="optional" />
+      </label>
+      <label>
+        Max height (px)
+        <input type="number" id="max-height" placeholder="optional" />
+      </label>
+      <label>
+        Format
+        <select id="format">
+          <option value="jpeg">JPEG</option>
+          <option value="png">PNG</option>
+          <option value="webp">WebP</option>
+        </select>
+      </label>
+      <label>
+        Quality <span id="quality-val">80</span>
+        <input type="range" id="quality" min="10" max="100" value="80" />
+      </label>
+    </div>
+    <p class="stats" id="batch-status"></p>
+    <button id="download-btn">Process & download ZIP</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initBatch } from '../scripts/batch';
+  initBatch();
+</script>

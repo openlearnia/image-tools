@@ -1,0 +1,28 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+import PreviewCompare from '../components/PreviewCompare.astro';
+---
+<AppLayout title="Favicon Pack — Openlearnia Image Tools" activeSlug="favicon">
+  <ToolShell title="Favicon Pack" description="Generate standard favicon sizes and download as a ZIP." slug="favicon">
+    <DropZone />
+    <div class="card">
+      <h3>Included files</h3>
+      <ul id="size-list" style="margin:0;padding-left:1.25rem;color:var(--muted)">
+        <li>favicon-16x16.png</li>
+        <li>favicon-32x32.png</li>
+        <li>apple-touch-icon.png (180×180)</li>
+        <li>android-chrome-192x192.png</li>
+        <li>android-chrome-512x512.png</li>
+        <li>favicon.ico</li>
+      </ul>
+    </div>
+    <PreviewCompare />
+    <button id="download-btn" disabled>Download ZIP</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initFavicon } from '../scripts/favicon';
+  initFavicon();
+</script>

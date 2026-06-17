@@ -1,0 +1,16 @@
+---
+interface Props {
+  id?: string;
+  multiple?: boolean;
+  label?: string;
+}
+
+const { id = 'drop-zone', multiple = false, label = 'Drop an image here or click to browse' } = Astro.props;
+---
+
+<div class="drop-zone" id={id} data-dropzone>
+  <input type="file" id={`${id}-input`} accept="image/jpeg,image/png,image/webp,image/gif,image/bmp" multiple={multiple} />
+  <p>{label}</p>
+  <p class="stats" style="margin:0.5rem 0 0">JPEG, PNG, WebP, GIF, BMP — max 25 MB</p>
+</div>
+<p class="error" id={`${id}-error`} hidden></p>

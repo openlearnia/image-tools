@@ -1,0 +1,31 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+import PreviewCompare from '../components/PreviewCompare.astro';
+---
+<AppLayout title="Convert Image — Openlearnia Image Tools" activeSlug="convert">
+  <ToolShell title="Convert Format" description="Convert between JPG, PNG, and WebP." slug="convert">
+    <DropZone />
+    <div class="controls">
+      <label>
+        Output format
+        <select id="format">
+          <option value="jpeg">JPEG</option>
+          <option value="png">PNG</option>
+          <option value="webp">WebP</option>
+        </select>
+      </label>
+      <label>
+        Quality <span id="quality-val">90</span>
+        <input type="range" id="quality" min="10" max="100" value="90" />
+      </label>
+    </div>
+    <PreviewCompare />
+    <button id="download-btn" disabled>Download</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initConvert } from '../scripts/convert';
+  initConvert();
+</script>

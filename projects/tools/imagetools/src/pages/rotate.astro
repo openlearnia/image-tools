@@ -1,0 +1,24 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+import PreviewCompare from '../components/PreviewCompare.astro';
+---
+<AppLayout title="Rotate & Flip — Openlearnia Image Tools" activeSlug="rotate">
+  <ToolShell title="Rotate & Flip" description="Rotate 90°, 180°, 270° or flip horizontally and vertically." slug="rotate">
+    <DropZone />
+    <div class="controls">
+      <button type="button" class="secondary" data-rotate="90">Rotate 90°</button>
+      <button type="button" class="secondary" data-rotate="180">Rotate 180°</button>
+      <button type="button" class="secondary" data-rotate="270">Rotate 270°</button>
+      <button type="button" class="secondary" id="flip-h">Flip horizontal</button>
+      <button type="button" class="secondary" id="flip-v">Flip vertical</button>
+    </div>
+    <PreviewCompare />
+    <button id="download-btn" disabled>Download</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initRotate } from '../scripts/rotate';
+  initRotate();
+</script>

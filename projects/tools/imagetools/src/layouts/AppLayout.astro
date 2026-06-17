@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import tools from '../data/image-tools.json';
+
+interface Props {
+  title: string;
+  description?: string;
+  activeSlug?: string;
+}
+
+const { title, description = 'Privacy-first image tools — processed entirely in your browser.', activeSlug } = Astro.props;
+const categories = [...new Set(tools.map((t) => t.category))];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header>
+      <p><strong><a href="/" style="color:inherit;text-decoration:none">Openlearnia Image Tools</a></strong></p>
+      <nav>
+        <a href="/" class:list={{ active: !activeSlug }}>All tools</a>
+        {tools.slice(0, 5).map((t) => (
+          <a href={`/${t.slug}`} class:list={{ active: activeSlug === t.slug }}>{t.name}</a>
+        ))}
+        <a href="https://openlearnia.com">Openlearnia</a>
+        <a href="https://github.com/openlearnia/image-tools">GitHub</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>An <a href="https://openlearnia.com">Openlearnia</a> project — files never leave your device.</p>
+      <p>© {new Date().getFullYear()} Openlearnia</p>
+    </footer>
+  </body>
+</html>

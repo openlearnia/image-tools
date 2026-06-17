@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+}
+
+const { title, description, slug } = Astro.props;
+---
+
+<div class="privacy-badge">Processed on your device — nothing uploaded</div>
+<h1>{title}</h1>
+<p>{description}</p>
+
+<div class="card" id="tool-root" data-tool={slug}>
+  <slot />
+</div>

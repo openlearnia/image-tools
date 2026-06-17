@@ -1,0 +1,23 @@
+name: Deploy Image Tools
+
+on:
+  push:
+    branches: [main]
+
+defaults:
+  run:
+    working-directory: projects/tools/imagetools
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+
+  # Cloudflare Pages: create project "openlearnia-image-tools", connect this repo,
+  # root directory = projects/tools/imagetools, custom domain = image.openlearnia.com

@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "compress",
+    "name": "Compress",
+    "category": "Optimize",
+    "description": "Reduce JPEG, PNG, or WebP file size with a quality slider."
+  },
+  {
+    "slug": "resize",
+    "name": "Resize",
+    "category": "Geometry",
+    "description": "Set width, height, or scale percentage while locking aspect ratio."
+  },
+  {
+    "slug": "convert",
+    "name": "Convert",
+    "category": "Format",
+    "description": "Convert between JPG, PNG, and WebP."
+  },
+  {
+    "slug": "crop",
+    "name": "Crop",
+    "category": "Geometry",
+    "description": "Crop to a region with aspect-ratio presets."
+  },
+  {
+    "slug": "rotate",
+    "name": "Rotate & Flip",
+    "category": "Geometry",
+    "description": "Rotate 90°, 180°, 270° or flip horizontally and vertically."
+  },
+  {
+    "slug": "strip-metadata",
+    "name": "Strip Metadata",
+    "category": "Privacy",
+    "description": "Remove EXIF, GPS, and other embedded metadata."
+  },
+  {
+    "slug": "watermark",
+    "name": "Watermark",
+    "category": "Edit",
+    "description": "Add a text watermark with adjustable opacity and position."
+  },
+  {
+    "slug": "merge",
+    "name": "Merge / Collage",
+    "category": "Combine",
+    "description": "Stitch multiple images horizontally, vertically, or in a grid."
+  },
+  {
+    "slug": "favicon",
+    "name": "Favicon Pack",
+    "category": "Brand",
+    "description": "Generate favicon sizes and download as a ZIP."
+  },
+  {
+    "slug": "batch",
+    "name": "Batch Process",
+    "category": "Optimize",
+    "description": "Compress or resize many images at once and download a ZIP."
+  }
+]

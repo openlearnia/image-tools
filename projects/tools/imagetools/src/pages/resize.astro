@@ -1,0 +1,52 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+import PreviewCompare from '../components/PreviewCompare.astro';
+---
+<AppLayout title="Resize Image — Openlearnia Image Tools" activeSlug="resize">
+  <ToolShell title="Resize Image" description="Set width, height, or scale while locking aspect ratio." slug="resize">
+    <DropZone />
+    <div class="controls">
+      <label>
+        Mode
+        <select id="resize-mode">
+          <option value="width">By width</option>
+          <option value="height">By height</option>
+          <option value="percent">By percent</option>
+        </select>
+      </label>
+      <label>
+        Width (px)
+        <input type="number" id="width" min="1" />
+      </label>
+      <label>
+        Height (px)
+        <input type="number" id="height" min="1" />
+      </label>
+      <label>
+        Percent
+        <input type="number" id="percent" min="1" max="500" value="100" />
+      </label>
+      <button type="button" class="secondary" id="lock-aspect" data-checked="true">Lock aspect</button>
+      <label>
+        Format
+        <select id="format">
+          <option value="jpeg">JPEG</option>
+          <option value="png">PNG</option>
+          <option value="webp">WebP</option>
+        </select>
+      </label>
+      <label>
+        Quality <span id="quality-val">85</span>
+        <input type="range" id="quality" min="10" max="100" value="85" />
+      </label>
+    </div>
+    <PreviewCompare />
+    <button id="download-btn" disabled>Download</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initResize } from '../scripts/resize';
+  initResize();
+</script>

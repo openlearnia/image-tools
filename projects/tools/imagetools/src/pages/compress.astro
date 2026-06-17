@@ -1,0 +1,31 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+import PreviewCompare from '../components/PreviewCompare.astro';
+---
+<AppLayout title="Compress Image — Openlearnia Image Tools" activeSlug="compress">
+  <ToolShell title="Compress Image" description="Reduce JPEG, PNG, or WebP file size with a quality slider." slug="compress">
+    <DropZone />
+    <div class="controls">
+      <label>
+        Quality <span id="quality-val">80</span>
+        <input type="range" id="quality" min="10" max="100" value="80" />
+      </label>
+      <label>
+        Format
+        <select id="format">
+          <option value="jpeg">JPEG</option>
+          <option value="png">PNG</option>
+          <option value="webp">WebP</option>
+        </select>
+      </label>
+    </div>
+    <PreviewCompare />
+    <button id="download-btn" disabled>Download</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initCompress } from '../scripts/compress';
+  initCompress();
+</script>

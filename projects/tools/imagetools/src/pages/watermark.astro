@@ -1,0 +1,41 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+import PreviewCompare from '../components/PreviewCompare.astro';
+---
+<AppLayout title="Watermark — Openlearnia Image Tools" activeSlug="watermark">
+  <ToolShell title="Watermark" description="Add a text watermark with adjustable opacity and position." slug="watermark">
+    <DropZone />
+    <div class="controls">
+      <label>
+        Text
+        <input type="text" id="watermark-text" value="Openlearnia" />
+      </label>
+      <label>
+        Opacity <span id="opacity-val">50</span>%
+        <input type="range" id="opacity" min="10" max="100" value="50" />
+      </label>
+      <label>
+        Font size
+        <input type="number" id="font-size" min="12" max="120" value="32" />
+      </label>
+      <label>
+        Position
+        <select id="position">
+          <option value="bottom-right">Bottom right</option>
+          <option value="bottom-left">Bottom left</option>
+          <option value="top-right">Top right</option>
+          <option value="top-left">Top left</option>
+          <option value="center">Center</option>
+        </select>
+      </label>
+    </div>
+    <PreviewCompare />
+    <button id="download-btn" disabled>Download</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initWatermark } from '../scripts/watermark';
+  initWatermark();
+</script>

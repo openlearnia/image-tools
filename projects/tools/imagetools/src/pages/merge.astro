@@ -1,0 +1,32 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+import PreviewCompare from '../components/PreviewCompare.astro';
+---
+<AppLayout title="Merge Images — Openlearnia Image Tools" activeSlug="merge">
+  <ToolShell title="Merge / Collage" description="Stitch multiple images horizontally, vertically, or in a grid." slug="merge">
+    <DropZone multiple label="Drop multiple images here or click to browse" />
+    <p class="stats" id="file-list">Select at least 2 images</p>
+    <div class="controls">
+      <label>
+        Layout
+        <select id="direction">
+          <option value="horizontal">Horizontal</option>
+          <option value="vertical">Vertical</option>
+          <option value="grid">Grid</option>
+        </select>
+      </label>
+      <label>
+        Gap (px)
+        <input type="number" id="gap" min="0" max="64" value="8" />
+      </label>
+    </div>
+    <PreviewCompare />
+    <button id="download-btn" disabled>Download collage</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initMerge } from '../scripts/merge';
+  initMerge();
+</script>

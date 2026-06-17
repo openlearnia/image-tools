@@ -1,0 +1,21 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+import PreviewCompare from '../components/PreviewCompare.astro';
+---
+<AppLayout title="Strip Metadata — Openlearnia Image Tools" activeSlug="strip-metadata">
+  <ToolShell title="Strip Metadata" description="Remove EXIF, GPS, and other embedded metadata from your images." slug="strip-metadata">
+    <DropZone />
+    <div class="card">
+      <h3>Detected metadata</h3>
+      <pre id="exif-info" style="white-space:pre-wrap;font-size:0.85rem;color:var(--muted)">Upload an image to inspect metadata.</pre>
+    </div>
+    <PreviewCompare />
+    <button id="download-btn" disabled>Download clean copy</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initStripMetadata } from '../scripts/strip-metadata';
+  initStripMetadata();
+</script>

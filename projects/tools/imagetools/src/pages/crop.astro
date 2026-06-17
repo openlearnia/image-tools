@@ -1,0 +1,31 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import ToolShell from '../components/ToolShell.astro';
+import DropZone from '../components/DropZone.astro';
+import PreviewCompare from '../components/PreviewCompare.astro';
+---
+<AppLayout title="Crop Image — Openlearnia Image Tools" activeSlug="crop">
+  <ToolShell title="Crop Image" description="Crop to a region with aspect-ratio presets." slug="crop">
+    <DropZone />
+    <div class="controls">
+      <button type="button" class="secondary" data-crop-preset="free">Free</button>
+      <button type="button" class="secondary" data-crop-preset="1">1:1</button>
+      <button type="button" class="secondary" data-crop-preset="1.7777777778">16:9</button>
+      <button type="button" class="secondary" data-crop-preset="1.3333333333">4:3</button>
+      <label>
+        Quality
+        <input type="range" id="quality" min="10" max="100" value="90" />
+      </label>
+    </div>
+    <img id="crop-source" alt="" hidden style="display:none" />
+    <div class="crop-canvas-wrap" id="crop-canvas-wrap" hidden>
+      <canvas id="crop-canvas"></canvas>
+    </div>
+    <PreviewCompare />
+    <button id="download-btn" disabled>Download</button>
+  </ToolShell>
+</AppLayout>
+<script>
+  import { initCrop } from '../scripts/crop';
+  initCrop();
+</script>

@@ -1,0 +1,26 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import tools from '../data/image-tools.json';
+
+const categories = [...new Set(tools.map((t) => t.category))];
+---
+<AppLayout title="Image Tools — Openlearnia" description="Privacy-first image utilities processed entirely in your browser.">
+  <div class="privacy-badge">All tools run locally — your files never leave your device</div>
+  <h1>Image Tools</h1>
+  <p>Free, private image utilities. Pick a tool below — no upload, no account.</p>
+
+  {categories.map((category) => (
+    <section>
+      <h2>{category}</h2>
+      <div class="tool-grid">
+        {tools.filter((t) => t.category === category).map((tool) => (
+          <a class="tool-card" href={`/${tool.slug}`}>
+            <div class="category">{category}</div>
+            <h3>{tool.name}</h3>
+            <p>{tool.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+</AppLayout>

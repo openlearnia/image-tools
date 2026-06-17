@@ -1,0 +1,20 @@
+---
+interface Props {
+  id?: string;
+}
+
+const { id = 'preview' } = Astro.props;
+---
+
+<div class="preview-row" id={id} hidden>
+  <div class="preview-box">
+    <h4>Original</h4>
+    <img id={`${id}-original`} alt="Original preview" hidden />
+    <p class="stats" id={`${id}-original-stats`}>No file selected</p>
+  </div>
+  <div class="preview-box">
+    <h4>Output</h4>
+    <img id={`${id}-output`} alt="Output preview" hidden />
+    <p class="stats" id={`${id}-output-stats`}>Process an image to preview</p>
+  </div>
+</div>
