@@ -4,13 +4,13 @@
 
 ```
 image-tools/
-└── projects/tools/imagetools/   ← Astro app (all development here)
+└── projects/tools/image-tools/   ← Astro app (all development here)
 ```
 
 ## Setup
 
 ```powershell
-cd projects/tools/imagetools
+cd projects/tools/image-tools
 bun install
 bun run dev
 ```
