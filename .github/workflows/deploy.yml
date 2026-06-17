@@ -1,11 +1,15 @@
 name: Deploy Image Tools
 
+# Required GitHub org secrets: CF_API_TOKEN, CF_ACCOUNT_ID
+# Pages project name is set in wrangler.toml at repo root.
+
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,6 +18,9 @@ jobs:
           bun-version: latest
       - run: bun install --frozen-lockfile
       - run: bun run build
-
-  # Cloudflare Pages: create project "openlearnia-image-tools", connect this repo,
-  # root directory = . (repo root), custom domain = image.openlearnia.com
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          command: pages deploy --commit-dirty=true

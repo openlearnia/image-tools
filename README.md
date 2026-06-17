@@ -30,9 +30,7 @@ Output is in `dist/`.
 
 ## Deploy
 
-Cloudflare Pages: connect `openlearnia/image-tools`, build command `bun run build`, output `dist`, root directory `.` (repo root). Custom domain: `image.openlearnia.com`.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) and `.github/workflows/deploy.yml`.
+Pushes to `main` deploy `dist/` to Cloudflare Pages via GitHub Actions (`.github/workflows/deploy.yml`). Required org secrets: `CF_API_TOKEN`, `CF_ACCOUNT_ID`. Pages project name is in `wrangler.toml`. Custom domain: `image.openlearnia.com`.
 
 ## License
 
