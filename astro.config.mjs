@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://image.openlearnia.com',
+  site: 'https://image-tools.openlearnia.com',
   output: 'static',
   vite: {
     worker: {

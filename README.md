@@ -2,7 +2,7 @@
 
 Privacy-first image utilities that run entirely in your browser — nothing is uploaded.
 
-**Live:** [image.openlearnia.com](https://image.openlearnia.com)
+**Live:** [image-tools.openlearnia.com](https://image-tools.openlearnia.com)
 
 ## Features
 
@@ -30,7 +30,7 @@ Output is in `dist/`.
 
 ## Deploy
 
-Pushes to `main` deploy `dist/` to Cloudflare Pages via GitHub Actions (`.github/workflows/deploy.yml`). Required org secrets: `CF_API_TOKEN`, `CF_ACCOUNT_ID`. Pages project name is in `wrangler.toml`. Custom domain: `image.openlearnia.com`.
+Pushes to `main` deploy `dist/` to Cloudflare Pages via GitHub Actions (`.github/workflows/deploy.yml`). Required org secrets: `CF_API_TOKEN`, `CF_ACCOUNT_ID`. Pages project name is in `wrangler.toml`. Custom domain: `image-tools.openlearnia.com`.
 
 ## License
 

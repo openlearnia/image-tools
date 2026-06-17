@@ -1,8 +1,8 @@
-# Deploy Image Tools to image.openlearnia.com
+# Deploy Image Tools to image-tools.openlearnia.com
 
 ## Cloudflare Pages setup
 
-1. Create a new Pages project: **openlearnia-image-tools**
+1. Create a new Pages project: **image-tools**
 2. Connect repository: `github.com/openlearnia/image-tools`
 3. Build settings:
    - **Root directory:** `.` (repo root)
@@ -12,15 +12,15 @@
 
 ## Custom domain
 
-1. In Pages → **Custom domains** → add `image.openlearnia.com`
+1. In Pages → **Custom domains** → add `image-tools.openlearnia.com`
 2. Add the CNAME record Cloudflare provides to your DNS (or use Cloudflare DNS on openlearnia.com)
 
 ## Verify
 
-- `https://image.openlearnia.com/` — tool hub
-- `https://image.openlearnia.com/compress` — sample tool
+- `https://image-tools.openlearnia.com/` — tool hub
+- `https://image-tools.openlearnia.com/compress` — sample tool
 - Footer links back to `https://openlearnia.com`
 
 ## Marketing site link
 
-Ensure [openlearnia.com/tools](https://openlearnia.com/tools) lists Image Tools with `url: https://image.openlearnia.com`.
+Ensure [openlearnia.com/tools](https://openlearnia.com/tools) lists Image Tools with `url: https://image-tools.openlearnia.com`.
