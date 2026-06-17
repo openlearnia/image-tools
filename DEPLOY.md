@@ -6,7 +6,7 @@
 2. Connect repository: `github.com/openlearnia/image-tools`
 3. Build settings:
    - **Root directory:** `projects/tools/imagetools`
-   - **Build command:** `npm run build`
+   - **Build command:** `bun run build`
    - **Build output:** `dist`
 4. Environment: Node.js 22 (default)
 

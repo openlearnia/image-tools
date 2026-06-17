@@ -3,8 +3,8 @@
 Privacy-first image utilities at [image.openlearnia.com](https://image.openlearnia.com).
 
 ```powershell
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 ## Architecture

@@ -11,8 +11,8 @@ image-tools/
 
 ```powershell
 cd projects/tools/imagetools
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 ## Adding a tool
@@ -24,5 +24,5 @@ npm run dev
 ## Pull requests
 
 - Keep processing client-side only — no server uploads
-- Run `npm run build` before submitting
+- Run `bun run build` before submitting
 - Match existing Astro + TypeScript patterns
