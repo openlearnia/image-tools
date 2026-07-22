@@ -91,6 +91,15 @@ header nav a.active {
   display: none;
 }
 
+.sample-button {
+  margin-top: 1rem;
+}
+
+.sample-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .tool-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

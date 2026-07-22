@@ -10,6 +10,20 @@ export function revokePreviewUrls(): void {
   previewOutputUrl = null;
 }
 
+export function bindPaste(onFile: (file: File) => void): void {
+  window.addEventListener('paste', (event) => {
+    const items = event.clipboardData?.items;
+    if (!items) return;
+
+    for (const item of items) {
+      if (!item.type.startsWith('image/')) continue;
+      const file = item.getAsFile();
+      if (file) onFile(file);
+      break;
+    }
+  });
+}
+
 export function setupDropZone(
   zoneId: string,
   onFiles: (files: File[]) => void,
@@ -18,6 +32,7 @@ export function setupDropZone(
   const zone = document.getElementById(zoneId);
   const input = document.getElementById(`${zoneId}-input`) as HTMLInputElement | null;
   const errorEl = document.getElementById(`${zoneId}-error`);
+  const sampleButton = document.getElementById(`${zoneId}-sample`) as HTMLButtonElement | null;
   if (!zone || !input) return;
 
   const handleFiles = async (files: FileList | File[]) => {
@@ -75,6 +90,30 @@ export function setupDropZone(
   });
   input.addEventListener('change', () => {
     if (input.files?.length) handleFiles(input.files);
+  });
+
+  bindPaste((file) => void handleFiles([file]));
+
+  sampleButton?.addEventListener('click', async (event) => {
+    event.stopPropagation();
+    sampleButton.disabled = true;
+    const label = sampleButton.textContent;
+    sampleButton.textContent = 'Loading sample…';
+
+    try {
+      const response = await fetch('/samples/demo.jpg');
+      if (!response.ok) throw new Error('Sample image could not be loaded.');
+      const blob = await response.blob();
+      await handleFiles([new File([blob], 'demo.jpg', { type: 'image/jpeg' })]);
+    } catch {
+      if (errorEl) {
+        errorEl.textContent = 'Could not load the sample image. Please try again.';
+        errorEl.hidden = false;
+      }
+    } finally {
+      sampleButton.disabled = false;
+      sampleButton.textContent = label;
+    }
   });
 }
 
