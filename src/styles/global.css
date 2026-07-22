@@ -193,6 +193,16 @@ button.secondary {
   margin-top: 1rem;
 }
 
+.preview-row[hidden] {
+  display: none !important;
+}
+
+.preview-box img[hidden],
+.preview-box img:not([src]),
+.preview-box img[src=""] {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .preview-row {
     grid-template-columns: 1fr;
